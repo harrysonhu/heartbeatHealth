@@ -6,10 +6,12 @@ export const {
     priceStyles,
     textWrapper,
     titleStyles,
-    welcomeImage
+    imageStyles
 } = StyleSheet.create({
     container: {
-        width: 400
+        width: 200,
+        alignItems: 'center',
+        marginBottom: 30
     },
     descriptionStyles: {
         fontStyle: 'italic',
@@ -28,11 +30,11 @@ export const {
         fontWeight: 'bold',
         marginBottom: 6
     },
-    welcomeImage: {
+    imageStyles: {
         borderRadius: 2,
-        width: 400,
-        height: 300,
-        resizeMode: 'center',
+        width: 150,
+        height: 150,
+        resizeMode: 'contain',
         marginTop: 3,
         marginLeft: -10
     }

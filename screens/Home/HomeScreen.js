@@ -35,7 +35,7 @@ export const HomeScreen = ({ navigation }) => {
                 <View style={getStartedContainer}>
                     <Text>Welcome to the Home Page</Text>
                     <Image
-                        source={require('../../assets/images/LeBrons.png')}
+                        source={require('../../assets/images/basketball1.png')}
                         style={welcomeImage}
                     />
 

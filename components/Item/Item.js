@@ -2,19 +2,17 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 import {
     container,
-    welcomeImage,
+    imageStyles,
     textWrapper,
     titleStyles,
     descriptionStyles,
     priceStyles
 } from './Item.css';
 
-const images = [require('../../assets/images/LeBrons.png')];
-
-export const Item = ({ title, description, price, imageIndex }) => {
+export const Item = ({ title, description, price, image }) => {
     return (
         <View style={container}>
-            <Image source={images[imageIndex]} style={welcomeImage} />
+            <Image source={image} style={imageStyles} />
             <View style={textWrapper}>
                 <Text style={titleStyles}>{title}</Text>
                 <Text style={descriptionStyles}>{description}</Text>
