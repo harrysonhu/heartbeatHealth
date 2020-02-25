@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import { HomeScreen, BasketballScreen, RunningScreen, TennisScreen } from '../screens';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -24,11 +23,27 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Running"
+        component={RunningScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: 'Running',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-ribbon" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Basketball"
+        component={BasketballScreen}
+        options={{
+          title: 'Basketball',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-basketball" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Tennis"
+        component={TennisScreen}
+        options={{
+          title: 'Tennis',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-tennisball" />,
         }}
       />
     </BottomTab.Navigator>
@@ -41,7 +56,11 @@ function getHeaderTitle(route) {
   switch (routeName) {
     case 'Home':
       return 'Home';
-    case 'Links':
-      return 'Links to learn more';
+    case 'Running':
+      return 'All Running Shoes';
+    case 'Basketball':
+      return 'All Basketball Shoes';
+    case 'Tennis':
+      return 'All Tennis Shoes';
   }
 }

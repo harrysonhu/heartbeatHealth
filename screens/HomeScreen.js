@@ -3,10 +3,18 @@ import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Button } from 'native-base';
 
-export default function HomeScreen({ navigation }) {
+export const HomeScreen = ({ navigation }) => {
 
-  const handlePress = () => {
-    navigation.navigate('Links');
+  const handleOnRunningPress = () => {
+    navigation.navigate('Running');
+  }
+
+  const handleOnBasketballPress = () => {
+    navigation.navigate('Basketball');
+  }
+
+  const handleOnTennisPress = () => {
+    navigation.navigate('Tennis');
   }
 
   return (
@@ -15,9 +23,18 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.getStartedContainer}>
           <Text>Welcome to the Home Page</Text>
           <Image source={require('../assets/images/LeBrons.png')} style={styles.welcomeImage} />
-          <Button primary onPress={handlePress} style={styles.shopButton}>
-            <Text style={styles.shopButtonText}>Shop Now</Text>
-          </Button>
+
+          <View style={styles.shopButtonContainer}>
+            <Button primary onPress={handleOnRunningPress} style={styles.shopButton}>
+              <Text style={styles.shopButtonText}>Shop Running</Text>
+            </Button>
+            <Button primary onPress={handleOnBasketballPress} style={styles.shopButton}>
+              <Text style={styles.shopButtonText}>Shop Basketball</Text>
+            </Button>
+            <Button primary onPress={handleOnTennisPress} style={styles.shopButton}>
+              <Text style={styles.shopButtonText}>Shop Tennis</Text>
+            </Button>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -32,6 +49,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  shopButtonContainer: {
+    marginTop: 50,
+    width: 400,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   shopButton: {
     padding: 8,
