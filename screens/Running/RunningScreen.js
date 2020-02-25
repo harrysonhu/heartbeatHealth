@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { Item } from '../../components';
+import { StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { KOBES, LEBRONS } from './constants';
 
-export const BasketballScreen = () => {
+import { ADIDAS, NIKES } from './constants';
+import { Item } from '../../components';
+
+export const RunningScreen = () => {
     const [mockData, setMockData] = useState([]);
 
     useEffect(() => {
@@ -20,14 +21,12 @@ export const BasketballScreen = () => {
             });
     }, []);
 
-    const createShoesFromMockData = isLebron => {
+    const createShoesFromMockData = isNike => {
         return mockData.map(({ userId, id, title }, index) => {
-            const itemTitle = `${isLebron ? 'LeBron' : 'Kobe'} ${userId}`;
+            const itemTitle = `${isNike ? 'Nike' : 'Adidas'} ${userId}`;
             const description = title.substring(0, title.indexOf(' '));
             const price = (Math.random(0, 1) * 500).toFixed(2);
-            const imageIndex = isLebron
-                ? id % LEBRONS.length
-                : id % KOBES.length;
+            const imageIndex = isNike ? id % NIKES.length : id % ADIDAS.length;
 
             return (
                 <Item
@@ -35,18 +34,27 @@ export const BasketballScreen = () => {
                     title={itemTitle}
                     description={description}
                     price={price}
-                    image={isLebron ? LEBRONS[imageIndex] : KOBES[imageIndex]}
+                    image={isNike ? NIKES[imageIndex] : ADIDAS[imageIndex]}
                 />
             );
         });
     };
 
     return (
-        <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
-            <View style={{ flexDirection: 'row' }}>
+        <ScrollView contentContainerStyle={contentContainer}>
+            <View style={itemWrapper}>
                 <View>{createShoesFromMockData(true)}</View>
                 <View>{createShoesFromMockData(false)}</View>
             </View>
         </ScrollView>
     );
 };
+
+const { contentContainer, itemWrapper } = StyleSheet.create({
+    itemWrapper: {
+        flexDirection: 'row'
+    },
+    contentContainer: {
+        alignItems: 'center'
+    }
+});

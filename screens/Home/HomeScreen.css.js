@@ -7,7 +7,8 @@ export const {
     shopButtonText,
     shopButton,
     welcomeImage,
-    welcomeContainer
+    welcomeContainer,
+    welcomeText
 } = StyleSheet.create({
     container: {
         flex: 1,
@@ -47,5 +48,11 @@ export const {
     getStartedContainer: {
         alignItems: 'center',
         marginHorizontal: 50
+    },
+    welcomeText: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 24
     }
 });

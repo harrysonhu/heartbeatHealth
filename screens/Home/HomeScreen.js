@@ -10,7 +10,8 @@ import {
     shopButton,
     shopButtonText,
     shopButtonContainer,
-    welcomeImage
+    welcomeImage,
+    welcomeText
 } from './HomeScreen.css';
 
 export const HomeScreen = ({ navigation }) => {
@@ -33,7 +34,9 @@ export const HomeScreen = ({ navigation }) => {
                 contentContainerStyle={contentContainer}
             >
                 <View style={getStartedContainer}>
-                    <Text>Welcome to the Home Page</Text>
+                    <Text style={welcomeText}>
+                        Welcome to the Shoe Emporium!
+                    </Text>
                     <Image
                         source={require('../../assets/images/basketball1.png')}
                         style={welcomeImage}
