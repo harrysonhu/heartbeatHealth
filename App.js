@@ -1,14 +1,15 @@
-import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { Platform, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Button } from 'native-base';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import { CartProvider } from './context/CartContext';
+import { CartContext, Provider } from './context/CartContext';
 import { Cart } from './screens';
 
 const Stack = createStackNavigator();
@@ -21,6 +22,11 @@ export default function App(props) {
     ] = React.useState();
     const containerRef = React.useRef();
     const { getInitialState } = useLinking(containerRef);
+    const [cart, setCart] = useState([]);
+
+    const handleClearCart = () => {
+        setCart([]);
+    };
 
     // Load any resources or data that we need prior to rendering the app
     React.useEffect(() => {
@@ -52,15 +58,31 @@ export default function App(props) {
         return null;
     } else {
         return (
-            <CartProvider>
-                <View style={styles.container}>
+            <Provider value={[cart, setCart]}>
+                <View style={container}>
                     {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
                     <NavigationContainer
                         ref={containerRef}
                         initialState={initialNavigationState}
                     >
                         <Stack.Navigator>
-                            <Stack.Screen name='Cart' component={Cart} />
+                            <Stack.Screen
+                                name='Cart'
+                                component={Cart}
+                                options={{
+                                    headerRight: () => (
+                                        <Button
+                                            primary
+                                            style={clearCartButtonStyles}
+                                            onPress={handleClearCart}
+                                        >
+                                            <Text style={clearCartTextStyles}>
+                                                Clear Cart
+                                            </Text>
+                                        </Button>
+                                    )
+                                }}
+                            />
                             <Stack.Screen
                                 name='Root'
                                 component={BottomTabNavigator}
@@ -68,14 +90,27 @@ export default function App(props) {
                         </Stack.Navigator>
                     </NavigationContainer>
                 </View>
-            </CartProvider>
+            </Provider>
         );
     }
 }
 
-const styles = StyleSheet.create({
+const {
+    container,
+    clearCartButtonStyles,
+    clearCartTextStyles
+} = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff'
+    },
+    clearCartButtonStyles: {
+        backgroundColor: 'lightgrey',
+        borderRadius: 8,
+        paddingHorizontal: 8,
+        marginRight: 8
+    },
+    clearCartTextStyles: {
+        fontWeight: 'bold'
     }
 });
