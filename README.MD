@@ -2,7 +2,7 @@
 
 To run the app, clone the repo and at the root level, run npm start. That will start the expo server.
 
-![image](screenshots\Expo.PNG)
+![image](screenshots/Expo.PNG)
 
 You should see a browser tab like this open up. To run on Android device, make sure you have an AVD (Android Virtual Device) running already before clicking `Run on Android device/emulator`.
 
@@ -14,9 +14,9 @@ There's a bug (Android specific) where if you go into the cart in Android and th
 
 ## Sample Screens
 
-![image](screenshots\RunningScreen.PNG)
-![image](screenshots\HomeScreen.PNG)
-![image](screenshots\BasketballScreen.PNG)
-![image](screenshots\TennisScreen.PNG)
-![image](screenshots\CartScreen.PNG)
-![image](screenshots\CartOnWeb.PNG)
+![image](screenshots/RunningScreen.PNG)
+![image](screenshots/HomeScreen.PNG)
+![image](screenshots/BasketballScreen.PNG)
+![image](screenshots/TennisScreen.PNG)
+![image](screenshots/CartScreen.PNG)
+![image](screenshots/CartOnWeb.PNG)
