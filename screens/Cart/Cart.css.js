@@ -13,7 +13,7 @@ export const {
         marginBottom: 30
     },
     imageStyles: {
-        width: 180,
+        width: 150,
         height: 150,
         resizeMode: 'contain',
         marginTop: 3,

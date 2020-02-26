@@ -9,7 +9,7 @@ import { Button } from 'native-base';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
-import { CartContext, Provider } from './context/CartContext';
+import { Provider } from './context/CartContext';
 import { Cart } from './screens';
 
 const Stack = createStackNavigator();
@@ -67,6 +67,10 @@ export default function App(props) {
                     >
                         <Stack.Navigator>
                             <Stack.Screen
+                                name='Root'
+                                component={BottomTabNavigator}
+                            />
+                            <Stack.Screen
                                 name='Cart'
                                 component={Cart}
                                 options={{
@@ -82,10 +86,6 @@ export default function App(props) {
                                         </Button>
                                     )
                                 }}
-                            />
-                            <Stack.Screen
-                                name='Root'
-                                component={BottomTabNavigator}
                             />
                         </Stack.Navigator>
                     </NavigationContainer>
