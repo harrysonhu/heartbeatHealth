@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const {
+    addToCartStyles,
     container,
     descriptionStyles,
     priceStyles,
@@ -8,6 +9,11 @@ export const {
     titleStyles,
     imageStyles
 } = StyleSheet.create({
+    addToCartStyles: {
+        backgroundColor: 'lightgrey',
+        borderRadius: 8,
+        paddingHorizontal: 8
+    },
     container: {
         width: 200,
         alignItems: 'center',
@@ -19,7 +25,8 @@ export const {
     },
     priceStyles: {
         fontSize: 14,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 8
     },
     textWrapper: {
         alignItems: 'center',
