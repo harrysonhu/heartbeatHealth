@@ -19,4 +19,15 @@ There's a bug (Android specific) where if you go into the cart in Android and th
 ![image](screenshots/BasketballScreen.PNG)
 ![image](screenshots/TennisScreen.PNG)
 ![image](screenshots/CartScreen.PNG)
+
+### Cart as seen on a web browser
+
 ![image](screenshots/CartOnWeb.PNG)
+
+## Tests
+
+I wrote some unit tests using `Jest` and `Enzyme` to test my custom `Item` component and `BasketballScreen`. The other screens are very similar to `BasketballScreen`, so I didn't write any unit tests for those, but if this app were to go to release, then those screens would need unit tests.
+
+As components become more stable/polished, snapshot tests might be valuable, but as components are still in development iteration, snapshot tests will break constantly, so it doesn't provide that much value initially.
+
+I used `native-base` UI library for the buttons, accordion, image, icon etc. It should not be this app's responsibility to test those components, as the `native-base` library should be handling that.
