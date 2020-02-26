@@ -29,9 +29,15 @@ export const Item = ({ title, description, price, image }) => {
         <View style={container}>
             <Image source={image} style={imageStyles} />
             <View style={textWrapper}>
-                <Text style={titleStyles}>{title}</Text>
-                <Text style={descriptionStyles}>{description}</Text>
-                <Text style={priceStyles}>{price}</Text>
+                <Text testId={'title-text'} style={titleStyles}>
+                    {title}
+                </Text>
+                <Text testId={'description-text'} style={descriptionStyles}>
+                    {description}
+                </Text>
+                <Text testId={'price'} style={priceStyles}>
+                    {price}
+                </Text>
                 <Button primary style={addToCartStyles} onPress={handleOnPress}>
                     <Text>Add to cart</Text>
                 </Button>

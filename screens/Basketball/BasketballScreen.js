@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import fetch from 'node-fetch';
 import { View } from 'react-native';
-import { Item } from '../../components';
 import { ScrollView } from 'react-native-gesture-handler';
+
+import { Item } from '../../components';
 import { KOBES, LEBRONS } from './constants';
 
 export const BasketballScreen = () => {
@@ -44,8 +46,12 @@ export const BasketballScreen = () => {
     return (
         <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
             <View style={{ flexDirection: 'row' }}>
-                <View>{createShoesFromMockData(true)}</View>
-                <View>{createShoesFromMockData(false)}</View>
+                <View testId='shoe-column-one'>
+                    {createShoesFromMockData(true)}
+                </View>
+                <View testId='shoe-column-two'>
+                    {createShoesFromMockData(false)}
+                </View>
             </View>
         </ScrollView>
     );

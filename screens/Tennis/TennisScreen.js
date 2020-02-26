@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { Item } from '../../components';
 import { ScrollView } from 'react-native-gesture-handler';
+
+import { Item } from '../../components';
 import { LOWTOP, HIGHTOP } from './constants';
 
 export const TennisScreen = () => {
